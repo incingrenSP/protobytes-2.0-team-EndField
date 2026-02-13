@@ -38,7 +38,7 @@ class SubmitResponse(BaseModel):
 # Challenge Models (mirrors challenges.json)
 
 class TestCase(BaseModel):
-    input: str = ""
+    input: str
     expected_output: str
     name: str
 
@@ -53,10 +53,10 @@ class Challenge(BaseModel):
     id: str
     area: str
     title: str
-    difficulty: int = Field(..., ge=1, le=10)
+    difficulty: str
     description: str
     starter_code: str
     test_cases: List[TestCase]
-    hints: List[str] = []
-    xp_reward: int = 100
-    enemy: EnemyInfo
+    hints: List[str]
+    xp_reward: int
+    base_damage: int

@@ -4,6 +4,11 @@ CodeQuest Backend — FastAPI Application
 An RPG-style educational game backend that compiles and evaluates
 C++ code submissions, returning structured results for the Godot client.
 """
+import sys
+import asyncio
+
+if sys.platform == "win32":
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
